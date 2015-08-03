@@ -30,16 +30,9 @@ var students = [
 
 $(document).on('ready', function() {
   console.log('sanity check!');
+});
 
-
-  function firstLoop(arr) {
-    arr.forEach(function(student) {
-      console.log(student.name);
-    });
-  }
-
-  firstLoop(students);
-
+  //1. print student age - WORKING
   function secondLoop(arr) {
     arr.forEach(function(student) {
       console.log(student.age);
@@ -48,7 +41,7 @@ $(document).on('ready', function() {
 
   secondLoop(students);
 
-
+  //Print student name plus city
   function thirdLoop(arr) {
     arr.forEach(function(student) {
       console.log(student.name + ", " + student.city);
@@ -57,24 +50,37 @@ $(document).on('ready', function() {
 
   thirdLoop(students);
 
+  //Print students from Boulder with name in this format
+  // Derek is from Boulder
+  // Carl is from Boulder
+  // Peter is from Boulder
   function fourthLoop(arr) {
-    var peopleFromBoulder = students.filter(function(student) {
-      return (student.city === "Boulder");
-    }).map(function(student) {
-      return student.name;
+    arr.forEach(function(student) {
+      if (student.city === "Boulder") {
+        console.log(student.name + " is from " + student.city);
+      }
     });
   }
 
+
   fourthLoop(students);
 
-});
+  //     return (student.city === "Boulder");
+  //   }).map(function(student) {
+  //     return student.name;
+  //   });
 
-var numbers = [1, 2, 3, 4];
 
-var newNumbers = numbers.filter(function(number){
-    return (number % 2 != 0);
-}).map(function(number){
-    return number * 2;
-});
+  //Print students older then 25 in this format
+  // Liz is older than 25
+  // Carl is older than 25
 
-console.log("The doubled numbers are", newNumbers); // [2, 6]
+  function fifthLoop(arr) {
+    arr.forEach(function(student) {
+      if (student.age > 25) {
+        console.log(student.name + " is older than 25");
+      }
+    });
+  }
+
+  fifthLoop(students);
